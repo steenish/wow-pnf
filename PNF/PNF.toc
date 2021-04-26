@@ -1,6 +1,6 @@
 ## Interface: 11307
 ## Title: Professi Never Forgetti
 ## Author: Anders Steen
-## Version: 1.0
+## Version: 1.1
 
 main.lua

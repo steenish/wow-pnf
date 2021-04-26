@@ -13,15 +13,18 @@ end)
 -- Function to create the string that appears in the dialog box.
 local function CreateReminderString(findMinerals, findHerbs)
     -- The default string.
-    local returnString = "Don't forgetti your professi now!"
+    local returnString = "|cFFFFFFFFDon't forgetti your professi now,"
+
+    local _, _, mineralIcon = GetSpellInfo("Find Minerals")
+    local _, _, herbIcon = GetSpellInfo("Find Herbs")
 
     -- Depending on the arguments, concatenate different things to the return string.
     if findMinerals and findHerbs then
-        returnString = returnString .. "\n\nCast either Find Herbs or Find Minerals!"
+        returnString = returnString .. "\n\n|cFFFFFF00cast |cFFFFFFFFeither |T"..herbIcon..":0|t|cFF00FF00Find Herbs |cFFFFFFor |T"..mineralIcon..":0|t|cFF00FF00Find Minerals|cFFFFFFFF!"
     elseif findMinerals then
-        returnString = returnString .. "\n\nCast Find Minerals!"
+        returnString = returnString .. "\n\n|cFFFFFF00cast |T"..mineralIcon..":0|t|cFF00FF00Find Minerals|cFFFFFFFF!"
     elseif findHerbs then
-        returnString = returnString .. "\n\nCast Find Herbs!"
+        returnString = returnString .. "\n\n|cFFFFFF00cast |T"..herbIcon..":0|t|cFF00FF00Find Herbs|cFFFFFFFF!"
     end
 
     return returnString
@@ -57,6 +60,7 @@ local EventFrame = CreateFrame("frame", "EventFrame")
 -- PLAYER_UNGHOST --> the player goes from being a ghost to not being a ghost
 EventFrame:RegisterEvent("PLAYER_UNGHOST")
 EventFrame:RegisterEvent("PLAYER_ALIVE")
+-- EventFrame:RegisterEvent("CURSOR_UPDATE") -- Uncomment this line for debugging.
 
 EventFrame:SetScript("OnEvent", function(self, event, ...)
     -- If the PLAYER_ALIVE event fires but the player is currently dead, the player has just released to graveyard.
