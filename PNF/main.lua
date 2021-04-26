@@ -20,7 +20,7 @@ local function CreateReminderString(findMinerals, findHerbs)
 
     -- Depending on the arguments, concatenate different things to the return string.
     if findMinerals and findHerbs then
-        returnString = returnString .. "\n\n|cFFFFFF00cast |cFFFFFFFFeither |T"..herbIcon..":0|t|cFF00FF00Find Herbs |cFFFFFFor |T"..mineralIcon..":0|t|cFF00FF00Find Minerals|cFFFFFFFF!"
+        returnString = returnString .. "\n\n|cFFFFFF00cast |cFFFFFFFFeither |T"..herbIcon..":0|t|cFF00FF00Find Herbs |cFFFFFFFFor |T"..mineralIcon..":0|t|cFF00FF00Find Minerals|cFFFFFFFF!"
     elseif findMinerals then
         returnString = returnString .. "\n\n|cFFFFFF00cast |T"..mineralIcon..":0|t|cFF00FF00Find Minerals|cFFFFFFFF!"
     elseif findHerbs then
